@@ -1,0 +1,73 @@
+name: Request GitHub App Access (broker-jwt-update)
+description: Request repository access for the broker-jwt-update GitHub App in bcgov-c.
+title: "[App Access]: <repository-name>"
+labels: ["access-request", "github-app", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### GitHub App Repository Access Request
+        Use this form to request adding your repository to the **`broker-jwt-update`** GitHub App installation in **`bcgov-c`**.
+        
+        > **Security Note:** This app requires **Read & Write** access to **Actions, Administration, Environments, and Secrets**[cite: 1]. Requests must be submitted or approved by a designated Repository Admin / Product Owner.
+
+  - type: input
+    id: repo-name
+    attributes:
+      label: Target Repository Name(s)
+      description: Provide the exact repository name(s) within `bcgov-c` (one per line, without the `https://github.com/bcgov-c/` prefix)[cite: 1].
+      placeholder: |
+        my-service-api
+        my-service-frontend
+    validations:
+      required: true
+
+  - type: input
+    id: team-ministry
+    attributes:
+      label: Team / Project / Branch Name
+      description: Identify the product team or ministry branch that owns this repository.
+      placeholder: e.g., Platform Services / Core Infrastructure
+    validations:
+      required: true
+
+  - type: input
+    id: repo-admin
+    attributes:
+      label: Repository Admin / Technical Lead Contact
+      description: GitHub handle (`@username`) of a current Repository Admin who approves this change. If you are not a Repo Admin, tag one below to comment their approval.
+      placeholder: "@github-username"
+    validations:
+      required: true
+
+  - type: textarea
+    id: justification
+    attributes:
+      label: Business & Technical Justification
+      description: Briefly explain why this repository needs automated JWT/credential updates via `broker-jwt-update`[cite: 1].
+      placeholder: e.g., Onboarding new microservice to automated Vault/OIDC JWT rotation pipeline for dev/test/prod environments.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: action-type
+    attributes:
+      label: Request Type
+      options:
+        - Grant access to new repository
+        - Revoke / Remove access from repository
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: security-acknowledgment
+    attributes:
+      label: Permission & Security Acknowledgment
+      description: Please review the permissions requested by `broker-jwt-update` before submitting[cite: 1].
+      options:
+        - label: I acknowledge that `broker-jwt-update` will be granted **Read** access to `code` and `metadata`[cite: 1].
+          required: true
+        - label: I acknowledge that `broker-jwt-update` will be granted **Read & Write** access to `actions`, `administration`, `environments`, and `secrets`[cite: 1].
+          required: true
+        - label: I confirm I am a Repository Admin for the listed repository (or have tagged a Repo Admin above to approve this issue before fulfillment).
+          required: true
