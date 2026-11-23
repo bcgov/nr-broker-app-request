@@ -15,7 +15,7 @@ body:
     id: repo-name
     attributes:
       label: Target Repository Name(s)
-      description: Provide the exact repository name(s) within `bcgov-c` (one per line, without the `https://github.com/bcgov-c/` prefix)[cite: 1].
+      description: Provide the exact repository name(s) within `bcgov-c` (one per line, without the `https://github.com/bcgov-c/` prefix)[cite:1].
       placeholder: |
         my-service-api
         my-service-frontend
@@ -44,7 +44,7 @@ body:
     id: justification
     attributes:
       label: Business & Technical Justification
-      description: Briefly explain why this repository needs automated JWT/credential updates via `broker-jwt-update`[cite: 1].
+      description: Briefly explain why this repository needs automated JWT/credential updates via `broker-jwt-update`[cite:1].
       placeholder: e.g., Onboarding new microservice to automated Vault/OIDC JWT rotation pipeline for dev/test/prod environments.
     validations:
       required: true
@@ -58,16 +58,3 @@ body:
         - Revoke / Remove access from repository
     validations:
       required: true
-
-  - type: checkboxes
-    id: security-acknowledgment
-    attributes:
-      label: Permission & Security Acknowledgment
-      description: Please review the permissions requested by `broker-jwt-update` before submitting[cite: 1].
-      options:
-        - label: I acknowledge that `broker-jwt-update` will be granted **Read** access to `code` and `metadata`[cite: 1].
-          required: true
-        - label: I acknowledge that `broker-jwt-update` will be granted **Read & Write** access to `actions`, `administration`, `environments`, and `secrets`[cite: 1].
-          required: true
-        - label: I confirm I am a Repository Admin for the listed repository (or have tagged a Repo Admin above to approve this issue before fulfillment).
-          required: true
