@@ -1,5 +1,5 @@
 name: Request GitHub App Access (broker-jwt-update)
-description: Request repository access for the broker-jwt-update GitHub App in bcgov-c.
+description: Request repository access for the broker-jwt-update GitHub App in bcgov-c or bcgov.
 title: "[App Access]: <repository-name>"
 labels: ["access-request", "github-app", "triage"]
 body:
